@@ -7,13 +7,26 @@
   </head>
   <body>
     <main>
-      <hl>Imagen del día de la AEMET</hl>
       <form action="#">
-        <label for="apikey">Pega tu API Key</label><br />
-        <textarea name="apikey" id="ap ikey" cols="30" rows="10"></textarea>
-        <br/>
-        <button>Cargar mapa</button>
+        <label>Número de segundos</label>
+        <input id="numsecs"></input><br/><br/>
+        <label>Número de usuario</label>
+        <input id="user"></input>
+        <br/><br/>
+        <button>Ejecutar</button>
       </form>
+      <div style="display: block">
+        <br /><br /><p>Obtención usuario</p>
+        </input><span>ID = </span>
+        <span id="id"></span><br />
+        <span>Email = </span>
+        <span id="email"></span><br />
+      </div>
+      <div style="display: block">
+        <p>Creación usuario</p>
+        <span>First Name = </span>
+        <span id="name"></span><br />
+      </div>
     </main>
     <script src="scripts/accion.js"> </script>
   </body>
