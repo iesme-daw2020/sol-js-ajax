@@ -1,7 +1,7 @@
 const BASE_URL = 'https://reqres.in/api/users/';
 const POSTMAN_URL = 'https://httpbin.org/post';
 
-//Código principal dentro del evento load
+// Código principal dentro del evento load
 // para asegurar la carga de los componentes
 window.addEventListener('load', (ev) => {
   let numsecs = document.getElementById('numsecs');
@@ -15,6 +15,9 @@ window.addEventListener('load', (ev) => {
   });
 });
 
+/**
+ * Configuració per a obtindre els usuaris (GET)
+ */
 function listUsuariosConf() {
   let headers = new Headers({
     'cache-control': 'no-cache',
@@ -28,6 +31,9 @@ function listUsuariosConf() {
   return conf;
 }
 
+/**
+ * Configuració per a enviar un usuari (POST)
+ */
 function createUsuariosConf(user) {
   let conf = {
     method: 'POST',
@@ -37,6 +43,9 @@ function createUsuariosConf(user) {
   return conf;
 }
 
+/**
+ * Solució amb .then
+ */
 function procesarFetch(numSecs, user) {
   fetch(BASE_URL + user + '?delay=' + numSecs, listUsuariosConf())
     .then((resultado) => {
@@ -58,6 +67,9 @@ function procesarFetch(numSecs, user) {
     });
 }
 
+/**
+ * Solució amb async/await
+ */
 async function procesarFetchAwait(numSecs, user) {
   try {
     // devuelve una promesa, y en resultado tenemos el response.
@@ -82,11 +94,17 @@ async function procesarFetchAwait(numSecs, user) {
   }
 }
 
+/**
+ * Mostrar un usuari per pantalla
+ */
 function mostrarUsuario(person) {
   document.getElementById('id').innerHTML = person.id;
   document.getElementById('email').innerHTML = person.email;
 }
 
+/**
+ * Netejar camps
+ */
 function clearFields() {
   document.querySelectorAll('span').forEach((element) => {
     element.innerHTML = '';
